@@ -11,6 +11,9 @@ if (isGlimmer) {
     major > 3 || (major == 3 && minor >= 2)
       ? 'ember-views/lib/compat/attrs'
       : 'ember-views/compat/attrs';
+  if (major == 3 && minor >= 10) {
+   libPath = '@ember/-internals/views/lib/compat/attrs'; 
+  }
   const { MUTABLE_CELL } = Ember.__loader.require(libPath);
   getMutValue = value => {
     if (value && value[MUTABLE_CELL]) {
